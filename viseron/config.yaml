@@ -1,0 +1,64 @@
+name: Viseron
+version: hass-app-test # 3.5.0
+slug: viseron
+description: Self-hosted, local only NVR and AI Computer Vision software.
+arch:
+  - amd64
+  - aarch64
+url: https://viseron.netlify.app/
+
+image: roflcoopter/viseron
+ports:
+  8888/tcp: 8888
+  1984/tcp: 1984
+  8555/tcp: 8555
+  8555/udp: 8555
+  8554/tcp: 8554
+  1935/tcp: 1935
+ports_description:
+  8888/tcp: Web UI
+  1984/tcp: go2rtc API
+  8555/tcp: go2rtc WebRTC (TCP)
+  8555/udp: go2rtc WebRTC (UDP)
+  8554/tcp: go2rtc RTSP
+  1935/tcp: go2rtc RTMP
+devices:
+  - /dev/dri
+  - /dev/dri/renderD128
+  - /dev/dri/card0
+  - /dev/video0
+  - /dev/video10
+  - /dev/video11
+  - /dev/video12
+  - /dev/vchiq
+  - /dev/apex_0
+  - /dev/apex_1
+  - /dev/apex_2
+  - /dev/apex_3
+  - /dev/hailo0
+  - /dev/hailo1
+init: false
+
+hassio_api: true
+homeassistant_api: true
+map:
+  - type: addon_config
+    read_only: False
+  - type: ssl
+    read_only: True
+  - type: data
+    read_only: False
+  - type: media
+    read_only: False
+audio: true
+video: true
+usb: true
+tmpfs: true
+services:
+  - "mqtt:want"
+
+ingress: true
+ingress_port: 8888
+ingress_entry: /
+panel_icon: "mdi:cctv"
+panel_admin: false
