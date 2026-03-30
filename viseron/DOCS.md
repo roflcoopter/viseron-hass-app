@@ -16,7 +16,7 @@ Viseron configuration is managed through its own `config.yaml` file, **not** thr
 
 On first startup, Viseron will automatically generate a default `config.yaml` in the add-on config directory. You can then edit this file to configure your cameras, detectors, and other settings.
 
-For detailed configuration options, see the [Viseron documentation](https://viseron.netlify.app/docs/documentation-structure).
+For detailed configuration options, see the [Viseron documentation](https://viseron.netlify.app/docs/documentation/configuration).
 
 ### Database
 
